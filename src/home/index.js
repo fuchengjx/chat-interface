@@ -41,6 +41,7 @@ const Home = (props) => {
 
 const styles = {
   container : {
+    position: 'relative',
     maxWidth: '420px',
     margin: '0 auto',
     height: '100%',
@@ -50,6 +51,8 @@ const styles = {
     alignItems: 'flex-end',
   },
   header: {
+    position: 'fixed',
+    top: '0',
     width: '100%',
     height: '50px',
     lineHeight: '50px',
@@ -63,6 +66,10 @@ const styles = {
     borderRadius: '50%',
   },
   content: {
+    position: 'fixed',
+    top: '50px',
+    bottom: '50px',
+    overflowY: 'auto',
     flex: 1,
     width: '100%',
     background: '#F1F2F7',
@@ -78,9 +85,7 @@ const styles = {
       margin: '10px 0',
       info: {
         display: 'inline-block',
-        height: '30px',
-        lineHeight: '30px',
-        padding: '3px 15px',
+        padding: '10px 15px',
         // textAlign: 'left',
         backgroundColor: '#1FBAFC',
         boxShadow: '0px 0px 2px #1FBAFD',
@@ -94,16 +99,17 @@ const styles = {
       textAlign: 'left',
       info: {
         display: 'inline-block',
-        height: '30px',
-        lineHeight: '30px',
-        padding: '3px 10px',
+        padding: '10px 10px',
         background: '#ffffff',
         borderRadius: '15px',
+        wordWrap: 'break-word',
       }
     }
 
   },
   footer: {
+    position: 'fixed',
+    bottom: '0',
     maxWidth: '420px',
     width: '100%',
     display: 'flex',
@@ -119,10 +125,11 @@ const styles = {
       outline: 'none',
     },
     button: {
-      width: '70px',
+      width: '80px',
       height: '50px',
-      borderRadius: '50%',
-      background: '1FBAFC',
+      marginRight: '20px',
+      borderRadius: '40px',
+      background: '#1FBAFC',
     }
   },
   
