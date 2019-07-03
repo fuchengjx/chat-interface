@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addInputItem, changeInputValue, toGetResponse } from './store/actionCreators';
+import _ from 'lodash'
 
 const Home = (props) => {
   return (
       <div style={styles.container}>
-        {
-          console.log("iiiiiii")
-        }
         <div style={styles.header}>
           我是智能垃圾分类机器人助手
         </div>
@@ -20,10 +18,10 @@ const Home = (props) => {
                   <div style={styles.content.msg}>
                     <span style={styles.content.item.info}>{item}</span>
                   </div>
-                  <img style={styles.avator} alt='你的头像' src="http://img.flura.cn/chatAvatar.png"></img>
+                  <img style={styles.avator} alt='你的头像' src={`https://exqlnet-note.oss-cn-shenzhen.aliyuncs.com/star/${RandomNum}.png`}></img>
                 </div>
-                <div style={styles.content.response}>
-                <img style={styles.avator} src="http://img.flura.cn/robot.jpg"></img>
+                <div style={styles.content.response} >
+                <img style={styles.avator} alt='浩浩机器人的头像' src="http://img.flura.cn/robot.jpg"></img>
                   <div style={styles.content.msg}>
                     <span style={styles.content.response.info}>{props.response[index]}</span>
                   </div>           
@@ -34,7 +32,7 @@ const Home = (props) => {
           }
         </div>
         <div style={styles.footer}>
-          <input style={styles.footer.input} value={props.inputValue} onChange={ props.handleInputValue }></input>
+          <input type="text"  style={styles.footer.input} value={props.inputValue} onChange={ props.handleInputValue }></input>
           <button style={styles.footer.button} onClick={() => {props.handBtnClick(props)} }>发送</button>
         </div>
       </div>
@@ -42,11 +40,12 @@ const Home = (props) => {
   
 }
 
+const RandomNum = _.random(1,3)
 
 const styles = {
   container : {
-    position: 'relative',
-    maxWidth: '420px',
+    // position: 'relative',
+    // maxWidth: '420px',
     margin: '0 auto',
     height: '100%',
     display: 'flex',
@@ -116,7 +115,7 @@ const styles = {
   footer: {
     position: 'fixed',
     bottom: '0',
-    maxWidth: '420px',
+    // maxWidth: '420px',
     paddingTop: '5px',
     width: '100%',
     display: 'flex',
