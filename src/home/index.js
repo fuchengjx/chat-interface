@@ -4,7 +4,10 @@ import { addInputItem, changeInputValue, toGetResponse } from './store/actionCre
 
 const Home = (props) => {
   return (
-<div style={styles.container}>
+      <div style={styles.container}>
+        {
+          console.log("iiiiiii")
+        }
         <div style={styles.header}>
           我是智能垃圾分类机器人助手
         </div>
@@ -17,10 +20,10 @@ const Home = (props) => {
                   <div style={styles.content.msg}>
                     <span style={styles.content.item.info}>{item}</span>
                   </div>
-                  <img style={styles.avator} src="http://img.flura.cn/myAvatar.jpg"></img>
+                  <img style={styles.avator} alt='你的头像' src="http://img.flura.cn/chatAvatar.png"></img>
                 </div>
                 <div style={styles.content.response}>
-                <img style={styles.avator} src="http://img.flura.cn/myAvatar.jpg"></img>
+                <img style={styles.avator} src="http://img.flura.cn/robot.jpg"></img>
                   <div style={styles.content.msg}>
                     <span style={styles.content.response.info}>{props.response[index]}</span>
                   </div>           
@@ -36,6 +39,7 @@ const Home = (props) => {
         </div>
       </div>
   )
+  
 }
 
 
@@ -49,6 +53,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-end',
+    color: 'white',
   },
   header: {
     position: 'fixed',
@@ -62,13 +67,14 @@ const styles = {
   avator: {
     width: '45px',
     height: '45px',
+    margin: '0 10px',
     border: '0',
     borderRadius: '50%',
   },
   content: {
     position: 'fixed',
     top: '50px',
-    bottom: '50px',
+    bottom: '55px',
     overflowY: 'auto',
     flex: 1,
     width: '100%',
@@ -86,7 +92,6 @@ const styles = {
       info: {
         display: 'inline-block',
         padding: '10px 15px',
-        // textAlign: 'left',
         backgroundColor: '#1FBAFC',
         boxShadow: '0px 0px 2px #1FBAFD',
         borderRadius: '15px',
@@ -102,6 +107,7 @@ const styles = {
         padding: '10px 10px',
         background: '#ffffff',
         borderRadius: '15px',
+        color: 'black',
         wordWrap: 'break-word',
       }
     }
@@ -111,24 +117,30 @@ const styles = {
     position: 'fixed',
     bottom: '0',
     maxWidth: '420px',
+    paddingTop: '5px',
     width: '100%',
     display: 'flex',
     background: '#ececf4',
+    height: '50px',
+    lineHeight: '50px',
     input: {
       flex: '1',
-      margin: '0 10px',
+      marginLeft: '10px',
       paddingLeft: '15px',
       height: '40px',
       lineHeight: '40px',
       fontSize: '20px',
+      border: 'none',
       borderRadius: '20px',
       outline: 'none',
     },
     button: {
-      width: '80px',
-      height: '50px',
-      marginRight: '20px',
-      borderRadius: '40px',
+      width: '70px',
+      height: '40px',
+      marginLeft: '10px',
+      marginRight: '10px',
+      borderRadius: '50%',
+      border: 'none',
       background: '#1FBAFC',
     }
   },
