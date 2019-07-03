@@ -6,15 +6,25 @@ const Home = (props) => {
   return (
 <div style={styles.container}>
         <div style={styles.header}>
-          我是智能分类机器人助手
+          我是智能垃圾分类机器人助手
         </div>
         <div style={styles.content}>
           {
             props.list.map((item, index) => {
               return ( 
               <div key={index}>
-                <div style={styles.content.item}>{item}</div>
-                <div style={styles.content.response}>{props.response[index]}</div>
+                <div style={styles.content.item}>
+                  <div style={styles.content.msg}>
+                    <span style={styles.content.item.info}>{item}</span>
+                  </div>
+                  <img style={styles.avator} src="http://img.flura.cn/myAvatar.jpg"></img>
+                </div>
+                <div style={styles.content.response}>
+                <img style={styles.avator} src="http://img.flura.cn/myAvatar.jpg"></img>
+                  <div style={styles.content.msg}>
+                    <span style={styles.content.response.info}>{props.response[index]}</span>
+                  </div>           
+                </div>
               </div>
               )
             }) 
@@ -44,26 +54,75 @@ const styles = {
     height: '50px',
     lineHeight: '50px',
     textAlign: 'center',
-    background: 'green',
+    background: '#01AFFF',
+  },
+  avator: {
+    width: '45px',
+    height: '45px',
+    border: '0',
+    borderRadius: '50%',
   },
   content: {
     flex: 1,
     width: '100%',
+    background: '#F1F2F7',
+    msg: {
+      width: '75%',
+      position: 'relative',
+    },
+
+    item: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      textAlign: 'right',
+      margin: '10px 0',
+      info: {
+        display: 'inline-block',
+        height: '30px',
+        lineHeight: '30px',
+        padding: '3px 15px',
+        // textAlign: 'left',
+        backgroundColor: '#1FBAFC',
+        boxShadow: '0px 0px 2px #1FBAFD',
+        borderRadius: '15px',
+      },
+    },
+
+    response: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      textAlign: 'left',
+      info: {
+        display: 'inline-block',
+        height: '30px',
+        lineHeight: '30px',
+        padding: '3px 10px',
+        background: '#ffffff',
+        borderRadius: '15px',
+      }
+    }
+
   },
   footer: {
     maxWidth: '420px',
     width: '100%',
     display: 'flex',
-    background: '#33333',
+    background: '#ececf4',
     input: {
       flex: '1',
-      height: '50px',
-      lineHeight: '50px',
+      margin: '0 10px',
+      paddingLeft: '15px',
+      height: '40px',
+      lineHeight: '40px',
       fontSize: '20px',
+      borderRadius: '20px',
+      outline: 'none',
     },
     button: {
-      width: '50px',
+      width: '70px',
       height: '50px',
+      borderRadius: '50%',
+      background: '1FBAFC',
     }
   },
   
@@ -84,12 +143,17 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action)
     },
     handBtnClick(props) {
-      const action = addInputItem()
-      dispatch(action)
-      const param = {"name": props.inputValue}
-      // console.log("param", param)
-      const resAction = toGetResponse(param)
-      dispatch(resAction)
+      if (props.inputValue !== '') {
+        const action = addInputItem()
+        dispatch(action)
+        const param = {"name": props.inputValue}
+        // console.log("param", param)
+        const resAction = toGetResponse(param)
+        dispatch(resAction)
+      } else {
+        console.log("input不能为空")
+      }
+    
     },
 
     
