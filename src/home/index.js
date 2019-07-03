@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { addInputItem, changeInputValue, toGetResponse } from './store/actionCreators';
 
@@ -28,14 +28,6 @@ const Home = (props) => {
   )
 }
 
-// class Home extends Component {
-//   render() {
-//     return (
-      
-//     )
- 
-//   }
-// }
 
 const styles = {
   container : {
@@ -62,15 +54,13 @@ const styles = {
     maxWidth: '420px',
     width: '100%',
     display: 'flex',
-
+    background: '#33333',
     input: {
       flex: '1',
       height: '50px',
       lineHeight: '50px',
-
       fontSize: '20px',
     },
-
     button: {
       width: '50px',
       height: '50px',

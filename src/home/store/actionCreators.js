@@ -18,7 +18,7 @@ export const getResponseValue = (data) => ({
 
 export const toGetResponse = (param) => {
   return (dispatch) => {
-    axios.get('http://118.25.236.82:1028/trash?name=%E9%99%B6%E7%93%B7',param).then((res) =>{
+    axios.get('http://118.25.236.82:1028/trash',{params: param}).then((res) =>{
       const data = res.data.content
       const action = getResponseValue(data)
       dispatch(action)
