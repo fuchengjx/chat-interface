@@ -13,6 +13,10 @@
 
 垃圾分类机器人项目地址： https://github.com/aboutmydreams/what-trash
 
+
+
+在基于这个聊天机器人的基础上，我又开发了一个完整的在线聊天系统，拥有登录、注册、添加好友、管理好友、好友分组、用户资料卡增删查改、消息盒子、未读消息等功能，能与对方即时通讯。 [前端项目地址](https://github.com/1022-the-avengers/whisper/tree/master/whisper-fe)    [后端项目地址](https://github.com/1022-the-avengers/whisper)
+
 ## Available Scripts
 
 In the project directory, you can run:
