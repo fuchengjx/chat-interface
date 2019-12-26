@@ -8,7 +8,6 @@ const Home = (props) => {
       <div style={styles.container}>
         <div style={styles.header}>
           我是智能垃圾分类机器人助手
-          
         </div>
         <div style={styles.content}>
           <div style={styles.content.response}>
@@ -25,10 +24,10 @@ const Home = (props) => {
                   <div style={styles.content.msg}>
                     <span style={styles.content.item.info}>{item}</span>
                   </div>
-                  <img style={styles.avator} alt='你的头像' src={`https://exqlnet-note.oss-cn-shenzhen.aliyuncs.com/star/${RandomNum}.png`}></img>
+                    <img style={styles.avator} alt='你的头像' src={avators[1]}></img>
                 </div>
                 <div style={styles.content.response} >
-                <img style={styles.avator} alt='浩浩机器人的头像' src="http://img.flura.cn/robot.jpg"></img>
+                    <img style={styles.avator} alt='浩浩机器人的头像' src={avators[0]}></img>
                   <div style={styles.content.msg}>
                     <span style={styles.content.response.info}>{props.response[index]}</span>
                   </div>           
@@ -48,6 +47,7 @@ const Home = (props) => {
 }
 
 const RandomNum = _.random(1,3)
+const avators = ["http://img.flura.cn/robot.jpg", `https://exqlnet-note.oss-cn-shenzhen.aliyuncs.com/star/${RandomNum}.png`]
 
 const styles = {
   container : {
