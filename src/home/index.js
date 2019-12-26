@@ -7,9 +7,9 @@ const Home = (props) => {
   return (
       <div style={styles.container}>
         <div style={styles.header}>
-          我是智能垃圾分类机器人助手
+          what-trash
         </div>
-        <div style={styles.content}>
+        <div id="cont" style={styles.content}>
           <div style={styles.content.response}>
             <img style={styles.avator} alt='浩浩机器人的头像' src="http://img.flura.cn/robot.jpg"></img>
             <div style={styles.content.msg}>
@@ -37,17 +37,19 @@ const Home = (props) => {
             }) 
           }
         </div>
-        <div style={styles.footer}>
-          <input type="text"  style={styles.footer.input} value={props.inputValue} onChange={ props.handleInputValue }></input>
-          <button style={styles.footer.button} onClick={() => {props.handBtnClick(props)} }>发送</button>
-        </div>
+        <form style={styles.footer} onSubmit={e => {props.handleSubmit(e, props)} }>
+          <input type="text"  style={styles.footer.input} value={props.inputValue}  onChange={ props.handleInputValue }></input>
+          <button style={styles.footer.button}>发送</button>
+        </form>
       </div>
   )
   
 }
 
-const RandomNum = _.random(1,3)
+
+const RandomNum = _.random(1, 3) //随机数，为了从cdn里随机挑选一个头像
 const avators = ["http://img.flura.cn/robot.jpg", `https://exqlnet-note.oss-cn-shenzhen.aliyuncs.com/star/${RandomNum}.png`]
+
 
 const styles = {
   container : {
@@ -79,7 +81,7 @@ const styles = {
     position: 'fixed',
     top: '50px',
     bottom: '55px',
-    overflowY: 'auto',
+    overflowY: 'scroll',
     flex: 1,
     width: '100%',
     background: '#F1F2F7',
@@ -92,7 +94,6 @@ const styles = {
       display: 'flex',
       justifyContent: 'flex-end',
       textAlign: 'right',
-      
       info: {
         display: 'inline-block',
         padding: '10px 15px',
@@ -167,7 +168,8 @@ const mapDispatchToProps = (dispatch) => {
       const action = changeInputValue(e.target.value)
       dispatch(action)
     },
-    handBtnClick(props) {
+    handleSubmit(e, props) {
+      e.preventDefault()
       if (props.inputValue !== '') {
         const action = addInputItem()
         dispatch(action)
@@ -175,16 +177,20 @@ const mapDispatchToProps = (dispatch) => {
         // console.log("param", param)
         const resAction = toGetResponse(param)
         dispatch(resAction)
+        setTimeout(() => {
+          this.scrollButtom()
+        }, 0);
       } else {
         console.log("input不能为空")
       }
-    
     },
+    scrollButtom() {
+      let cont = document.getElementById("cont")
+      cont.scrollTop = cont.scrollHeight
+    }
 
-    
   }
 }
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
