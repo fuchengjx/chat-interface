@@ -17,6 +17,38 @@
 
 在基于这个聊天机器人的基础上，我又开发了一个完整的在线聊天系统，拥有登录、注册、添加好友、管理好友、好友分组、用户资料卡增删查改、消息盒子、未读消息等功能，能与对方即时通讯。 [前端项目地址](https://github.com/1022-the-avengers/whisper/tree/master/whisper-fe)    [后端项目地址](https://github.com/1022-the-avengers/whisper)
 
+效果图
+
+![登录](http://img.flura.cn/clip_image002.gif)
+
+![注册](http://img.flura.cn/clip_image004.gif)
+
+![消息盒子](http://img.flura.cn/clip_image008.gif)
+
+
+
+![好友列表](http://img.flura.cn/clip_image012.gif)
+
+
+
+![添加好友](http://img.flura.cn/clip_image016.gif)
+
+
+
+
+
+![个人信息](http://img.flura.cn/clip_image018.gif)
+
+
+
+![添加好友](http://img.flura.cn/clip_image020.gif)
+
+
+
+![系统聊天](http://img.flura.cn/clip_image026.gif)
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
